@@ -3,24 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Access</title>
+    <title>Secure Panel</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="app-container" class="glass-box">
-        <div id="auth-zone">
-            <h2 id="h-title">Security Check</h2>
-            <input type="password" id="p-input" placeholder="••••••••">
-            <button id="auth-btn">Enter</button>
+    <div id="wrapper">
+        <div id="auth-panel" class="box">
+            <h2 id="t-h">Security Check</h2>
+            <input type="password" id="p-in" placeholder="••••••••">
+            <button id="b-auth">Enter</button>
         </div>
-        <div id="main-zone" style="display: none;">
-            <div id="menu-area"></div>
+        <div id="nav-panel" class="box" style="display: none;">
+            <div id="menu"></div>
         </div>
     </div>
-    <div id="view-container" style="display: none;">
-        <button onclick="backToMenu()" id="back-btn">×</button>
-        <iframe id="site-frame" src="" frameborder="0"></iframe>
+    <div id="full-frame" style="display: none;">
+        <button onclick="c_f()" id="c-btn">×</button>
+        <iframe id="ifr" src="" frameborder="0"></iframe>
     </div>
     <script src="script.js"></script>
 </body>
 </html>
+
