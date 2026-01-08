@@ -1,73 +1,68 @@
-const _D = {
-    k: "MTM4NTU=",
-    l: "aHR0cHM6Ly9kYWlnby5pci9kaXJlY3Q=",
-    u: "TWFoaXh4",
-    t1: "2YjYsdmI2K8g2KjZhyDYr9in24zary8=", 
-    t2: "2LHZhdiy2q_YtNin24zZiiDYqtmM2qnYs9iq", 
-    f: "2YbYp9mFINqp2KfYsdio2LHZiiDYr9in24zary8gOiA="
-}
+const _X = {
+    c: "MTM4NTU=",
+    u: "aHR0cHM6Ly9kYWlnby5pci9kaXJlY3Q=",
+    n: "TWFoaXh4",
+    m1: "2YjYsdmI2K8g2KjZhyDYr9in24zary8=",
+    m2: "2KrYsdis2YXZhyDYqtqp2LPYqg==",
+    ft: "2YbYp9mFINqp2KfYsdio2LHZiiDYr9in24zary86IA=="
+};
 
-const _S = (s) => decodeURIComponent(escape(atob(s)));
-const _F = (s) => btoa(unescape(encodeURIComponent(s)));
+const _E = (t) => btoa(unescape(encodeURIComponent(t)));
+const _D = (t) => decodeURIComponent(escape(atob(t)));
 
-const authBtn = document.getElementById('auth-btn');
-const pInp = document.getElementById('p-input');
+const bA = document.getElementById('b-auth');
+const iA = document.getElementById('p-in');
 
-authBtn.addEventListener('click', () => {
-    if (_F(pInp.value) === _D.k) {
-        renderUI();
+bA.onclick = () => {
+    if (_E(iA.value) === _X.c) {
+        document.getElementById('auth-panel').style.display = 'none';
+        s_m();
     } else {
-        pInp.style.borderColor = "#ff4757";
+        iA.style.border = "1px solid red";
     }
-});
+};
 
-function renderUI() {
-    document.getElementById('auth-zone').style.display = 'none';
-    const main = document.getElementById('main-zone');
-    const menu = document.getElementById('menu-area');
-    main.style.display = 'block';
-
-    menu.innerHTML = `
-        <button class="menu-item" onclick="openSite(_S(_D.l))">${_S(_D.t1)}</button>
-        <button class="menu-item" id="toggle-p">${_S(_D.t2)}</button>
-        
-        <div id="p-area" style="display:none; width:100%; margin-top:15px; border-top:1px solid rgba(255,255,255,0.1); padding-top:15px;">
-            <textarea id="p-text" rows="3" placeholder="..."></textarea>
+function s_m() {
+    const p = document.getElementById('nav-panel');
+    const m = document.getElementById('menu');
+    p.style.display = 'block';
+    m.innerHTML = `
+        <button onclick="o_f()">${_D(_X.m1)}</button>
+        <button id="t-p">${_D(_X.m2)}</button>
+        <div id="x-z" style="display:none; margin-top:15px; border-top:1px solid #444;">
+            <textarea id="i-t" rows="3"></textarea>
             <div style="display:flex; gap:5px; margin-top:10px;">
-                <button onclick="op('e')">E</button>
-                <button onclick="op('d')" style="background:#2d3436">D</button>
+                <button onclick="p_x(1)">E</button>
+                <button onclick="p_x(2)" style="background:#444">D</button>
             </div>
-            <div id="p-out" style="color:#00ff88; font-size:11px; margin-top:10px; word-break:break-all;"></div>
+            <div id="r-t" style="font-size:11px; word-break:break-all; color:#0f8; margin-top:10px;"></div>
         </div>
-
-        <div class="footer-text">${_S(_D.f)} ${_S(_D.u)}</div>
+        <div class="f-txt">${_D(_X.ft)} ${_D(_X.n)}</div>
     `;
 
-    document.getElementById('toggle-p').onclick = () => {
-        const a = document.getElementById('p-area');
-        a.style.display = a.style.display === 'none' ? 'block' : 'none';
+    document.getElementById('t-p').onclick = () => {
+        const z = document.getElementById('x-z');
+        z.style.display = z.style.display === 'none' ? 'block' : 'none';
     };
 }
 
-window.openSite = (url) => {
-    const container = document.getElementById('view-container');
-    const frame = document.getElementById('site-frame');
-    container.style.display = 'block';
-    frame.src = url;
+window.o_f = () => {
+    document.getElementById('full-frame').style.display = 'block';
+    document.getElementById('ifr').src = _D(_X.u);
 };
 
-window.backToMenu = () => {
-    document.getElementById('view-container').style.display = 'none';
-    document.getElementById('site-frame').src = "";
+window.c_f = () => {
+    document.getElementById('full-frame').style.display = 'none';
+    document.getElementById('ifr').src = "";
 };
 
-window.op = (mode) => {
-    const v = document.getElementById('p-text').value;
-    const res = document.getElementById('p-out');
+window.p_x = (m) => {
+    const v = document.getElementById('i-t').value;
+    const o = document.getElementById('r-t');
     try {
-        res.innerText = (mode === 'e') ? _F(v) : _S(v);
-    } catch(e) { res.innerText = "Error!"; }
+        o.innerText = (m === 1) ? _E(v) : _D(v);
+    } catch (e) { o.innerText = "Error!"; }
 };
 
-pInp.addEventListener('keypress', (e) => { if (e.key === 'Enter') authBtn.click(); });
+iA.onkeypress = (e) => { if (e.key === 'Enter') bA.click(); };
 
