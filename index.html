@@ -3,125 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Gateway</title>
+    <title>مدیریت هوشمند</title>
     <style>
-        :root { --c1: #0f172a; --c2: #1e293b; --a: #6366f1; --s: #ec4899; }
-        body, html { margin: 0; padding: 0; height: 100%; font-family: Tahoma, sans-serif; background: var(--c1); color: white; overflow: hidden; }
-        .v { display: flex; align-items: center; justify-content: center; height: 100vh; width: 100%; transition: 0.5s; }
-        .k { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(20px); padding: 3rem; border-radius: 30px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 25px 50px rgba(0,0,0,0.5); text-align: center; width: 340px; }
-        input, textarea { width: 100%; padding: 15px; margin: 10px 0; border-radius: 15px; border: none; background: rgba(255,255,255,0.05); color: white; box-sizing: border-box; text-align: center; font-size: 1rem; outline: none; border: 1px solid rgba(255,255,255,0.1); }
-        button { width: 100%; padding: 15px; margin: 8px 0; border-radius: 15px; border: none; background: linear-gradient(135deg, var(--a), var(--s)); color: white; cursor: pointer; font-weight: bold; transition: 0.3s; }
-        button:hover { transform: scale(1.02); opacity: 0.9; }
+        :root { --p: #4338ca; --s: #db2777; --bg: #020617; }
+        body, html { margin: 0; padding: 0; height: 100%; font-family: Tahoma, sans-serif; background: var(--bg); color: #f8fafc; overflow: hidden; }
+        .v { display: flex; align-items: center; justify-content: center; height: 100vh; width: 100%; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .c { background: rgba(30, 41, 59, 0.5); backdrop-filter: blur(25px); padding: 2.5rem; border-radius: 28px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 20px 50px rgba(0,0,0,0.6); text-align: center; width: 340px; position: relative; }
+        input, textarea { width: 100%; padding: 14px; margin: 10px 0; border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); background: rgba(15, 23, 42, 0.6); color: #fff; box-sizing: border-box; text-align: center; font-size: 0.95rem; outline: none; transition: 0.3s; }
+        input:focus { border-color: var(--p); box-shadow: 0 0 0 2px rgba(67, 56, 202, 0.3); }
+        button { width: 100%; padding: 14px; margin: 8px 0; border-radius: 14px; border: none; background: linear-gradient(135deg, var(--p), var(--s)); color: white; cursor: pointer; font-weight: bold; font-size: 0.95rem; transition: 0.3s; display: block; }
+        button:hover { transform: translateY(-2px); filter: brightness(1.1); box-shadow: 0 10px 20px -5px rgba(219, 39, 119, 0.4); }
         .h { display: none !important; }
-        #w-c { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9999; background: white; }
-        .cls { position: absolute; top: 15px; left: 15px; z-index: 10000; background: #ff4757; color: white; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer; }
-        .u-i { font-size: 0.7rem; margin-top: 20px; opacity: 0.4; letter-spacing: 1px; }
-        iframe { width: 100%; height: 100%; border: none; }
+        #w-w { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; background: #fff; }
+        .cl { position: absolute; top: 15px; left: 15px; z-index: 10001; background: #ef4444; color: white; border: none; padding: 10px 18px; border-radius: 10px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); font-weight: bold; }
+        .u-t { font-size: 0.75rem; margin-top: 25px; color: rgba(255,255,255,0.4); border-top: 1px solid rgba(255,255,255,0.05); padding-top: 15px; }
+        iframe { width: 100%; height: 100%; border: none; position: absolute; top: 0; left: 0; }
+        h2 { font-weight: normal; margin-bottom: 1.5rem; letter-spacing: -0.5px; }
     </style>
 </head>
 <body>
 
-    <div id="s1" class="v">
-        <div class="k">
-            <h2 id="t1"></h2>
-            <input type="password" id="p" placeholder="">
-            <button id="b1" onclick="v()"></button>
+    <div id="s_login" class="v">
+        <div class="c">
+            <h2 id="t_1"></h2>
+            <input type="password" id="i_p" placeholder="">
+            <button id="b_1" onclick="v_p()"></button>
         </div>
     </div>
 
-    <div id="s2" class="v h">
-        <div class="k">
-            <h2 id="t2"></h2>
-            <button id="b2" onclick="o()"></button>
-            <button id="b3" onclick="t()"></button>
-            <div id="inf" class="u-i"></div>
+    <div id="s_main" class="v h">
+        <div class="c">
+            <h2 id="t_2"></h2>
+            <button id="b_2" onclick="o_d()"></button>
+            <button id="b_3" onclick="t_s()"></button>
+            <div id="u_i" class="u-t"></div>
         </div>
     </div>
 
-    <div id="s3" class="v h">
-        <div class="k" style="width: 400px;">
-            <h3 id="t3"></h3>
-            <textarea id="ti" placeholder=""></textarea>
-            <button id="b4" onclick="x(1)"></button>
-            <button id="b5" onclick="x(0)"></button>
-            <textarea id="to" readonly></textarea>
-            <button id="b6" onclick="t()" style="background: #475569;"></button>
+    <div id="s_tool" class="v h">
+        <div class="c" style="width: 380px;">
+            <h3 id="t_3"></h3>
+            <textarea id="i_t" placeholder=""></textarea>
+            <button id="b_4" onclick="p_b(1)"></button>
+            <button id="b_5" onclick="p_b(0)"></button>
+            <textarea id="o_t" readonly placeholder="..."></textarea>
+            <button id="b_6" onclick="t_s()" style="background: #334155;"></button>
         </div>
     </div>
 
-    <div id="w-c" class="h">
-        <button id="b7" class="cls" onclick="c()"></button>
-        <iframe id="ifr" allow="clipboard-read; clipboard-write" referrerpolicy="no-referrer"></iframe>
+    <div id="w-w" class="h">
+        <button id="b_7" class="cl" onclick="c_d()"></button>
+        <iframe id="i_f" referrerpolicy="no-referrer" allow="camera; microphone; clipboard-write; geolocation"></iframe>
     </div>
 
     <script>
-        const _z = {
-            a: "MTM4NTU=",
-            b: "dm9yb29k",
-            c: "cmFtemUgaG9idW9y",
-            d: "dGF5aWQ=",
-            e: "cGFuZWxlIGthcmJhcmk=",
-            f: "dm9yb29kIGJlIGRhaWdv",
-            g: "dGFyam9tZSBtYXRu",
-            h: "bmFtIGthcmJhcmkgZGFpZ28gOiBNYWhpeHg=",
-            i: "aHR0cHM6Ly9kYWlnby5pci9kaXJlY3Q=",
-            j: "QmFzZTY0",
-            k: "cmFtemdvemFyaQ==",
-            l: "cmFtemdvc2hheWk=",
-            m: "YmF6Z2FzaHQ=",
-            n: "YmFzdGFu",
-            o: "cmFtemUgaXNodGViYWgh",
-            p: "bWF0biByYSB2YXJlZCBrb25pZA=="
+        const _0x_d = {
+            k: "MTM4NTU=",
+            t1: "2YjYsdmI9CDYqNmHINiz24zYs9iq2YU=",
+            p1: "2LHZhdiyINmI2LHZiNivINmE2LfZgdinINmI2KfYsdivINmD2YbbjNiv",
+            b1: "2KrYp9uM24zaZCDZiNix2YjYrw==",
+            t2: "2Y7ZbmVsINmF2K/Zitix24zYql8=",
+            b2: "2YjYsdmI2K8g2KjZhyDYr9in24zar9mI",
+            b3: "2KrYsdis2YXZhyDZhdiq2YYgKEJhc2U2NCk=",
+            ui: "2Ybardin2YUg2qnYp9ix2KjYsduMINiv2KfbjNqv2YggOiBNYWhpeHg=",
+            li: "aHR0cHM6Ly9kYWlnby5pci9kaXJlY3Q=",
+            t3: "2KrYsdis2YXZhyDZiCDYsdmF2Lpnam962KfYstuMINmF2KrZhiAoQmFzZTY0KQ==",
+            b4: "2LHZhdiy2q9w2KfYsduM",
+            b5: "2LHZhdiy2q902LTYp9uM",
+            b6: "2KjYp9iy2q/YtNiqINio2Ycg2Y7ZbmVs",
+            b7: "2KjYp9iz2KrZhiDaryDZhdiz2YrYsQ==",
+            e1: "2LHZhdiyINmI2LHZiNixINin2LTYqtmI2KfZhyDYp9iz2KogIQ==",
+            e2: "2YXYqtmGINix2Kcg2YjYp9ix2K8g2qnZhtuZ24zaZCAh",
+            ph: "2YXYqtmGINix2Kcg2KfbjNmG2KzYpyDZiNin2LHYryDaqmZbtuZp2K8gLi4u"
         };
 
-        const g = id => document.getElementById(id);
-        const f = v => atob(v);
+        const $ = i => document.getElementById(i);
+        const d = s => decodeURIComponent(escape(atob(s)));
 
         window.onload = () => {
-            g('t1').innerText = f(_z.b);
-            g('p').placeholder = f(_z.c);
-            g('b1').innerText = f(_z.d);
-            g('t2').innerText = f(_z.e);
-            g('b2').innerText = f(_z.f);
-            g('b3').innerText = f(_z.g);
-            g('inf').innerText = f(_z.h);
-            g('t3').innerText = f(_z.j);
-            g('ti').placeholder = f(_z.p);
-            g('b4').innerText = f(_z.k);
-            g('b5').innerText = f(_z.l);
-            g('b6').innerText = f(_z.m);
-            g('b7').innerText = f(_z.n);
+            $('t_1').innerText = d(_0x_d.t1);
+            $('i_p').placeholder = d(_0x_d.p1);
+            $('b_1').innerText = d(_0x_d.b1);
+            $('t_2').innerText = d(_0x_d.t2);
+            $('b_2').innerText = d(_0x_d.b2);
+            $('b_3').innerText = d(_0x_d.b3);
+            $('u_i').innerText = d(_0x_d.ui);
+            $('t_3').innerText = d(_0x_d.t3);
+            $('i_t').placeholder = d(_0x_d.ph);
+            $('b_4').innerText = d(_0x_d.b4);
+            $('b_5').innerText = d(_0x_d.b5);
+            $('b_6').innerText = d(_0x_d.b6);
+            $('b_7').innerText = d(_0x_d.b7);
         };
 
-        function v() {
-            if (btoa(g('p').value) === _z.a) {
-                g('s1').classList.add('h');
-                g('s2').classList.remove('h');
+        function v_p() {
+            if (btoa($('i_p').value) === _0x_d.k) {
+                $('s_login').classList.add('h');
+                $('s_main').classList.remove('h');
             } else {
-                alert(f(_z.o));
+                alert(d(_0x_d.e1));
             }
         }
 
-        function o() {
-            g('ifr').src = f(_z.i);
-            g('w-c').classList.remove('h');
+        function o_d() {
+            $('i_f').src = atob(_0x_d.li);
+            $('w-w').classList.remove('h');
         }
 
-        function c() {
-            g('w-c').classList.add('h');
-            g('ifr').src = "";
+        function c_d() {
+            $('w-w').classList.add('h');
+            $('i_f').src = "";
         }
 
-        function t() {
-            g('s2').classList.toggle('h');
-            g('s3').classList.toggle('h');
+        function t_s() {
+            $('s_main').classList.toggle('h');
+            $('s_tool').classList.toggle('h');
         }
 
-        function x(m) {
+        function p_b(m) {
             try {
-                g('to').value = m ? btoa(g('ti').value) : atob(g('ti').value);
-            } catch (e) {
-                alert("Error");
+                let v = $('i_t').value;
+                $('o_t').value = m ? btoa(unescape(encodeURIComponent(v))) : decodeURIComponent(escape(atob(v)));
+            } catch (x) {
+                alert(d(_0x_d.e2));
             }
         }
     </script>
