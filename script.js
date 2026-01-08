@@ -1,11 +1,11 @@
 const _D = {
     k: "MTM4NTU=",
-    l: "aHR0cHM6Ly9kYWlnby5pci9kaXJlY3Q=", // Daigo
+    l: "aHR0cHM6Ly9kYWlnby5pci9kaXJlY3Q=",
     u: "TWFoaXh4",
-    t1: "2YjYsdmI2K8g2KjZhyDYr9in24zary8=", // ورود به دایگو
-    t2: "2LHZhdiy2q_YtNin24zZiiDYqtmM2qnYs9iq", // رمزگشایی تکست
-    f: "2YbYp9mFINqp2KfYsdio2LHZiiDYr9in24zary8gOiA=" // نام کاربری دایگو
-};
+    t1: "2YjYsdmI2K8g2KjZhyDYr9in24zary8=", 
+    t2: "2LHZhdiy2q_YtNin24zZiiDYqtmM2qnYs9iq", 
+    f: "2YbYp9mFINqp2KfYsdio2LHZiiDYr9in24zary8gOiA="
+}
 
 const _S = (s) => decodeURIComponent(escape(atob(s)));
 const _F = (s) => btoa(unescape(encodeURIComponent(s)));
