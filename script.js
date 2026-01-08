@@ -1,12 +1,10 @@
 const _D = {
     k: "MTM4NTU=",
-    l1: "aHR0cHM6Ly94LmNvbQ==",
-    l2: "aHR0cHM6Ly9kYWlnby5pci9kaXJlY3Q=",
+    l: "aHR0cHM6Ly9kYWlnby5pci9kaXJlY3Q=", // Daigo
     u: "TWFoaXh4",
-    t1: "2YjYsdmI2K8g2KjZhyDYqtmI24zYqtix",
-    t2: "2YjYsdmI2K8g2KjZhyDYr9in24zary8=",
-    t3: "2KrYsdis2YXZhyBt",
-    f: "2YbYp9mFINqp2KfYsdio2LHZiiDYr9in24zary8gOiA="
+    t1: "2YjYsdmI2K8g2KjZhyDYr9in24zary8=", // ورود به دایگو
+    t2: "2LHZhdiy2q_YtNin24zZiiDYqtmM2qnYs9iq", // رمزگشایی تکست
+    f: "2YbYp9mFINqp2KfYsdio2LHZiiDYr9in24zary8gOiA=" // نام کاربری دایگو
 };
 
 const _S = (s) => decodeURIComponent(escape(atob(s)));
@@ -30,13 +28,12 @@ function renderUI() {
     main.style.display = 'block';
 
     menu.innerHTML = `
-        <button class="menu-item" onclick="openSite(_S(_D.l1))">${_S(_D.t1)}</button>
-        <button class="menu-item" onclick="openSite(_S(_D.l2))">${_S(_D.t2)}</button>
-        <button class="menu-item" id="toggle-p">${_S(_D.t3)}</button>
+        <button class="menu-item" onclick="openSite(_S(_D.l))">${_S(_D.t1)}</button>
+        <button class="menu-item" id="toggle-p">${_S(_D.t2)}</button>
         
-        <div id="p-area" style="display:none; margin-top:20px; border-top:1px solid rgba(255,255,255,0.1); padding-top:15px;">
+        <div id="p-area" style="display:none; width:100%; margin-top:15px; border-top:1px solid rgba(255,255,255,0.1); padding-top:15px;">
             <textarea id="p-text" rows="3" placeholder="..."></textarea>
-            <div style="display:flex; gap:5px; margin-top:10px; justify-content:center;">
+            <div style="display:flex; gap:5px; margin-top:10px;">
                 <button onclick="op('e')">E</button>
                 <button onclick="op('d')" style="background:#2d3436">D</button>
             </div>
@@ -53,7 +50,6 @@ function renderUI() {
 }
 
 window.openSite = (url) => {
-    document.getElementById('menu-area').style.display = 'none';
     const container = document.getElementById('view-container');
     const frame = document.getElementById('site-frame');
     container.style.display = 'block';
@@ -62,7 +58,6 @@ window.openSite = (url) => {
 
 window.backToMenu = () => {
     document.getElementById('view-container').style.display = 'none';
-    document.getElementById('menu-area').style.display = 'block';
     document.getElementById('site-frame').src = "";
 };
 
@@ -75,3 +70,4 @@ window.op = (mode) => {
 };
 
 pInp.addEventListener('keypress', (e) => { if (e.key === 'Enter') authBtn.click(); });
+
