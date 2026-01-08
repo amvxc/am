@@ -3,25 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Panel</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Secure Access</title>
+    <style>
+        :root { --p: #4f46e5; --s: #9333ea; --bg: #030712; }
+        body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; background: var(--bg); color: #fff; overflow: hidden; }
+        .v { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; width: 100%; transition: 0.4s; }
+        .c { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); padding: 2.5rem; border-radius: 24px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); text-align: center; width: 320px; }
+        input, textarea { width: 100%; padding: 14px; margin: 12px 0; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.2); color: #fff; box-sizing: border-box; text-align: center; font-size: 1rem; }
+        button { width: 100%; padding: 14px; margin: 8px 0; border-radius: 12px; border: none; background: linear-gradient(135deg, var(--p), var(--s)); color: #fff; cursor: pointer; font-weight: 600; transition: 0.3s ease; box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4); }
+        button:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(79, 70, 229, 0.6); }
+        .h { display: none !important; }
+        #f-cnt { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 2000; background: #fff; }
+        .cls { position: fixed; top: 20px; left: 20px; z-index: 2001; background: #ef4444; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        .st { font-size: 0.75rem; margin-top: 20px; opacity: 0.5; letter-spacing: 0.5px; }
+        h2, h3 { margin-top: 0; font-weight: 300; }
+    </style>
 </head>
 <body>
-    <div id="wrapper">
-        <div id="auth-panel" class="box">
-            <h2 id="t-h">Security Check</h2>
-            <input type="password" id="p-in" placeholder="••••••••">
-            <button id="b-auth">Enter</button>
-        </div>
-        <div id="nav-panel" class="box" style="display: none;">
-            <div id="menu"></div>
+
+    <div id="sc1" class="v">
+        <div class="c">
+            <h2 id="t1"></h2>
+            <input type="password" id="pw" placeholder="">
+            <button id="b1" onclick="vk()"></button>
         </div>
     </div>
-    <div id="full-frame" style="display: none;">
-        <button onclick="c_f()" id="c-btn">×</button>
-        <iframe id="ifr" src="" frameborder="0"></iframe>
+
+    <div id="sc2" class="v h">
+        <div class="c">
+            <h2 id="t2"></h2>
+            <button id="b2" onclick="od()"></button>
+            <button id="b3" onclick="ts()"></button>
+            <div id="ui" class="st"></div>
+        </div>
     </div>
-    <script src="script.js"></script>
+
+    <div id="sc3" class="v h">
+        <div class="c" style="width: 380px;">
+            <h3 id="t3"></h3>
+            <textarea id="ti" placeholder=""></textarea>
+            <button id="b4" onclick="pb(1)"></button>
+            <button id="b5" onclick="pb(0)"></button>
+            <textarea id="to" readonly></textarea>
+            <button id="b6" onclick="ts()" style="background: #374151;"></button>
+        </div>
+    </div>
+
+    <div id="f-cnt" class="h">
+        <button id="b7" class="cls" onclick="cd()"></button>
+        <iframe id="ifrm" style="width:100%; height:100%; border:none;"></iframe>
+    </div>
+
+    <script>
+        const _m = {
+            a: "MTM4NTU=", 
+            b: "dm9yb29k",
+            c: "cmFtemUgaG9idW9y",
+            d: "dGF5aWQ=",
+            e: "cGFuZWxlIGthcmJhcmk=",
+            f: "dm9yb29kIGJlIGRhaWdv",
+            g: "dGFyam9tZSBtYXRu",
+            h: "bmFtIGthcmJhcmkgZGFpZ28gOiBNYWhpeHg=",
+            i: "aHR0cHM6Ly9kYWlnby5pci9kaXJlY3Q=",
+            j: "cmFtemdvemFyaSBCYXNlNjQ=",
+            k: "ZW5jb2Rl",
+            l: "ZGVjb2Rl",
+            m: "YmF6Z2FzaHQ=",
+            n: "YmFzdGFu",
+            o: "cmFtemUgaXNodGViYWgh",
+            p: "bWF0biByYSB2YXJlZCBrb25pZA=="
+        };
+
+        const $ = id => document.getElementById(id);
+        const d = v => atob(v);
+
+        window.onload = () => {
+            $('t1').innerText = d(_m.b);
+            $('pw').placeholder = d(_m.c);
+            $('b1').innerText = d(_m.d);
+            $('t2').innerText = d(_m.e);
+            $('b2').innerText = d(_m.f);
+            $('b3').innerText = d(_m.g);
+            $('ui').innerText = d(_m.h);
+            $('t3').innerText = d(_m.j);
+            $('ti').placeholder = d(_m.p);
+            $('b4').innerText = d(_m.k);
+            $('b5').innerText = d(_m.l);
+            $('b6').innerText = d(_m.m);
+            $('b7').innerText = d(_m.n);
+        };
+
+        function vk() {
+            if (btoa($('pw').value) === _m.a) {
+                $('sc1').classList.add('h');
+                $('sc2').classList.remove('h');
+            } else {
+                alert(d(_m.o));
+            }
+        }
+
+        function od() {
+            $('ifrm').src = d(_m.i);
+            $('f-cnt').classList.remove('h');
+        }
+
+        function cd() {
+            $('f-cnt').classList.add('h');
+            $('ifrm').src = "";
+        }
+
+        function ts() {
+            $('sc2').classList.toggle('h');
+            $('sc3').classList.toggle('h');
+        }
+
+        function pb(e) {
+            try {
+                $('to').value = e ? btoa($('ti').value) : atob($('ti').value);
+            } catch (x) {
+                alert("Error");
+            }
+        }
+    </script>
 </body>
 </html>
-
