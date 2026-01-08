@@ -19,23 +19,24 @@ authBtn.addEventListener('click', () => {
     if (_F(pInp.value) === _D.k) {
         renderUI();
     } else {
-        pInp.style.borderColor = "#ff7675";
+        pInp.style.borderColor = "#ff4757";
     }
 });
 
 function renderUI() {
     document.getElementById('auth-zone').style.display = 'none';
     const main = document.getElementById('main-zone');
+    const menu = document.getElementById('menu-area');
     main.style.display = 'block';
 
-    main.innerHTML = `
-        <button class="menu-item" onclick="window.open(_S(_D.l1), '_self')">${_S(_D.t1)}</button>
-        <button class="menu-item" onclick="window.open(_S(_D.l2), '_self')">${_S(_D.t2)}</button>
+    menu.innerHTML = `
+        <button class="menu-item" onclick="openSite(_S(_D.l1))">${_S(_D.t1)}</button>
+        <button class="menu-item" onclick="openSite(_S(_D.l2))">${_S(_D.t2)}</button>
         <button class="menu-item" id="toggle-p">${_S(_D.t3)}</button>
         
         <div id="p-area" style="display:none; margin-top:20px; border-top:1px solid rgba(255,255,255,0.1); padding-top:15px;">
             <textarea id="p-text" rows="3" placeholder="..."></textarea>
-            <div style="display:flex; gap:5px; margin-top:10px;">
+            <div style="display:flex; gap:5px; margin-top:10px; justify-content:center;">
                 <button onclick="op('e')">E</button>
                 <button onclick="op('d')" style="background:#2d3436">D</button>
             </div>
@@ -51,6 +52,20 @@ function renderUI() {
     };
 }
 
+window.openSite = (url) => {
+    document.getElementById('menu-area').style.display = 'none';
+    const container = document.getElementById('view-container');
+    const frame = document.getElementById('site-frame');
+    container.style.display = 'block';
+    frame.src = url;
+};
+
+window.backToMenu = () => {
+    document.getElementById('view-container').style.display = 'none';
+    document.getElementById('menu-area').style.display = 'block';
+    document.getElementById('site-frame').src = "";
+};
+
 window.op = (mode) => {
     const v = document.getElementById('p-text').value;
     const res = document.getElementById('p-out');
@@ -59,6 +74,4 @@ window.op = (mode) => {
     } catch(e) { res.innerText = "Error!"; }
 };
 
-pInp.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') authBtn.click();
-});
+pInp.addEventListener('keypress', (e) => { if (e.key === 'Enter') authBtn.click(); });
