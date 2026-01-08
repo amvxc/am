@@ -13,7 +13,13 @@
             <input type="password" id="p-input" placeholder="••••••••">
             <button id="auth-btn">Enter</button>
         </div>
-        <div id="main-zone" style="display: none;"></div>
+        <div id="main-zone" style="display: none;">
+            <div id="menu-area"></div>
+            <div id="view-container" style="display: none;">
+                <button onclick="backToMenu()" id="back-btn">برگشت به منو</button>
+                <iframe id="site-frame" src="" frameborder="0"></iframe>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
