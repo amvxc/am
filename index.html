@@ -3,60 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Access</title>
+    <title>Secure Gateway</title>
     <style>
-        :root { --p: #4f46e5; --s: #9333ea; --bg: #030712; }
-        body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; background: var(--bg); color: #fff; overflow: hidden; }
-        .v { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; width: 100%; transition: 0.4s; }
-        .c { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); padding: 2.5rem; border-radius: 24px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); text-align: center; width: 320px; }
-        input, textarea { width: 100%; padding: 14px; margin: 12px 0; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.2); color: #fff; box-sizing: border-box; text-align: center; font-size: 1rem; }
-        button { width: 100%; padding: 14px; margin: 8px 0; border-radius: 12px; border: none; background: linear-gradient(135deg, var(--p), var(--s)); color: #fff; cursor: pointer; font-weight: 600; transition: 0.3s ease; box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4); }
-        button:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(79, 70, 229, 0.6); }
+        :root { --c1: #0f172a; --c2: #1e293b; --a: #6366f1; --s: #ec4899; }
+        body, html { margin: 0; padding: 0; height: 100%; font-family: Tahoma, sans-serif; background: var(--c1); color: white; overflow: hidden; }
+        .v { display: flex; align-items: center; justify-content: center; height: 100vh; width: 100%; transition: 0.5s; }
+        .k { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(20px); padding: 3rem; border-radius: 30px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 25px 50px rgba(0,0,0,0.5); text-align: center; width: 340px; }
+        input, textarea { width: 100%; padding: 15px; margin: 10px 0; border-radius: 15px; border: none; background: rgba(255,255,255,0.05); color: white; box-sizing: border-box; text-align: center; font-size: 1rem; outline: none; border: 1px solid rgba(255,255,255,0.1); }
+        button { width: 100%; padding: 15px; margin: 8px 0; border-radius: 15px; border: none; background: linear-gradient(135deg, var(--a), var(--s)); color: white; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        button:hover { transform: scale(1.02); opacity: 0.9; }
         .h { display: none !important; }
-        #f-cnt { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 2000; background: #fff; }
-        .cls { position: fixed; top: 20px; left: 20px; z-index: 2001; background: #ef4444; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; }
-        .st { font-size: 0.75rem; margin-top: 20px; opacity: 0.5; letter-spacing: 0.5px; }
-        h2, h3 { margin-top: 0; font-weight: 300; }
+        #w-c { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9999; background: white; }
+        .cls { position: absolute; top: 15px; left: 15px; z-index: 10000; background: #ff4757; color: white; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer; }
+        .u-i { font-size: 0.7rem; margin-top: 20px; opacity: 0.4; letter-spacing: 1px; }
+        iframe { width: 100%; height: 100%; border: none; }
     </style>
 </head>
 <body>
 
-    <div id="sc1" class="v">
-        <div class="c">
+    <div id="s1" class="v">
+        <div class="k">
             <h2 id="t1"></h2>
-            <input type="password" id="pw" placeholder="">
-            <button id="b1" onclick="vk()"></button>
+            <input type="password" id="p" placeholder="">
+            <button id="b1" onclick="v()"></button>
         </div>
     </div>
 
-    <div id="sc2" class="v h">
-        <div class="c">
+    <div id="s2" class="v h">
+        <div class="k">
             <h2 id="t2"></h2>
-            <button id="b2" onclick="od()"></button>
-            <button id="b3" onclick="ts()"></button>
-            <div id="ui" class="st"></div>
+            <button id="b2" onclick="o()"></button>
+            <button id="b3" onclick="t()"></button>
+            <div id="inf" class="u-i"></div>
         </div>
     </div>
 
-    <div id="sc3" class="v h">
-        <div class="c" style="width: 380px;">
+    <div id="s3" class="v h">
+        <div class="k" style="width: 400px;">
             <h3 id="t3"></h3>
             <textarea id="ti" placeholder=""></textarea>
-            <button id="b4" onclick="pb(1)"></button>
-            <button id="b5" onclick="pb(0)"></button>
+            <button id="b4" onclick="x(1)"></button>
+            <button id="b5" onclick="x(0)"></button>
             <textarea id="to" readonly></textarea>
-            <button id="b6" onclick="ts()" style="background: #374151;"></button>
+            <button id="b6" onclick="t()" style="background: #475569;"></button>
         </div>
     </div>
 
-    <div id="f-cnt" class="h">
-        <button id="b7" class="cls" onclick="cd()"></button>
-        <iframe id="ifrm" style="width:100%; height:100%; border:none;"></iframe>
+    <div id="w-c" class="h">
+        <button id="b7" class="cls" onclick="c()"></button>
+        <iframe id="ifr" allow="clipboard-read; clipboard-write" referrerpolicy="no-referrer"></iframe>
     </div>
 
     <script>
-        const _m = {
-            a: "MTM4NTU=", 
+        const _z = {
+            a: "MTM4NTU=",
             b: "dm9yb29k",
             c: "cmFtemUgaG9idW9y",
             d: "dGF5aWQ=",
@@ -65,62 +65,62 @@
             g: "dGFyam9tZSBtYXRu",
             h: "bmFtIGthcmJhcmkgZGFpZ28gOiBNYWhpeHg=",
             i: "aHR0cHM6Ly9kYWlnby5pci9kaXJlY3Q=",
-            j: "cmFtemdvemFyaSBCYXNlNjQ=",
-            k: "ZW5jb2Rl",
-            l: "ZGVjb2Rl",
+            j: "QmFzZTY0",
+            k: "cmFtemdvemFyaQ==",
+            l: "cmFtemdvc2hheWk=",
             m: "YmF6Z2FzaHQ=",
             n: "YmFzdGFu",
             o: "cmFtemUgaXNodGViYWgh",
             p: "bWF0biByYSB2YXJlZCBrb25pZA=="
         };
 
-        const $ = id => document.getElementById(id);
-        const d = v => atob(v);
+        const g = id => document.getElementById(id);
+        const f = v => atob(v);
 
         window.onload = () => {
-            $('t1').innerText = d(_m.b);
-            $('pw').placeholder = d(_m.c);
-            $('b1').innerText = d(_m.d);
-            $('t2').innerText = d(_m.e);
-            $('b2').innerText = d(_m.f);
-            $('b3').innerText = d(_m.g);
-            $('ui').innerText = d(_m.h);
-            $('t3').innerText = d(_m.j);
-            $('ti').placeholder = d(_m.p);
-            $('b4').innerText = d(_m.k);
-            $('b5').innerText = d(_m.l);
-            $('b6').innerText = d(_m.m);
-            $('b7').innerText = d(_m.n);
+            g('t1').innerText = f(_z.b);
+            g('p').placeholder = f(_z.c);
+            g('b1').innerText = f(_z.d);
+            g('t2').innerText = f(_z.e);
+            g('b2').innerText = f(_z.f);
+            g('b3').innerText = f(_z.g);
+            g('inf').innerText = f(_z.h);
+            g('t3').innerText = f(_z.j);
+            g('ti').placeholder = f(_z.p);
+            g('b4').innerText = f(_z.k);
+            g('b5').innerText = f(_z.l);
+            g('b6').innerText = f(_z.m);
+            g('b7').innerText = f(_z.n);
         };
 
-        function vk() {
-            if (btoa($('pw').value) === _m.a) {
-                $('sc1').classList.add('h');
-                $('sc2').classList.remove('h');
+        function v() {
+            if (btoa(g('p').value) === _z.a) {
+                g('s1').classList.add('h');
+                g('s2').classList.remove('h');
             } else {
-                alert(d(_m.o));
+                alert(f(_z.o));
             }
         }
 
-        function od() {
-            $('ifrm').src = d(_m.i);
-            $('f-cnt').classList.remove('h');
+        function o() {
+            g('ifr').src = f(_z.i);
+            g('w-c').classList.remove('h');
         }
 
-        function cd() {
-            $('f-cnt').classList.add('h');
-            $('ifrm').src = "";
+        function c() {
+            g('w-c').classList.add('h');
+            g('ifr').src = "";
         }
 
-        function ts() {
-            $('sc2').classList.toggle('h');
-            $('sc3').classList.toggle('h');
+        function t() {
+            g('s2').classList.toggle('h');
+            g('s3').classList.toggle('h');
         }
 
-        function pb(e) {
+        function x(m) {
             try {
-                $('to').value = e ? btoa($('ti').value) : atob($('ti').value);
-            } catch (x) {
+                g('to').value = m ? btoa(g('ti').value) : atob(g('ti').value);
+            } catch (e) {
                 alert("Error");
             }
         }
